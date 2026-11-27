@@ -46,8 +46,10 @@ founder.innerHTML = `<p class="eyebrow muted">A NOTE FROM THE FOUNDER</p><h2>Lea
 document.querySelector('.journey').before(founder);
 const founderStyles = document.createElement('style'); founderStyles.textContent = `.founder{padding:100px 0}.founder h2{font:500 clamp(42px,5vw,65px)/1 "Playfair Display",serif;letter-spacing:-.05em;margin:0 0 22px}.founder h2 em{color:#71876d}.founder>p:last-child{max-width:670px;color:#53645b;font-size:17px;line-height:1.75}.stay-grid article:nth-child(3) p{max-width:230px}@media(max-width:760px){.founder{padding:72px 0}}`; document.head.appendChild(founderStyles);
 const supportCard = document.querySelector('.stay-grid article:nth-child(3)');
-supportCard.querySelector('p').textContent = 'Sponsorship opportunities are being planned for the future.';
-supportCard.querySelector('a').textContent = 'Ask about future sponsorship';
+supportCard.querySelector('h3').textContent = 'Support the journey';
+supportCard.querySelector('p').textContent = 'Have an idea, resource, or collaboration that could help Medhartha grow? We’d love to hear from you.';
+supportCard.querySelector('a').textContent = 'Get in touch';
+supportCard.querySelector('a').href = 'mailto:contactus@medhartha.com?subject=Supporting%20the%20Medhartha%20journey';
 const communityCard = document.querySelector('.stay-grid article:nth-child(4)');
 communityCard.querySelector('p').textContent = 'A space to learn together is coming soon. Get in touch to hear updates.';
 communityCard.querySelector('a').textContent = 'Ask about the community';
