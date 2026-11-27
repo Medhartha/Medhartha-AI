@@ -32,3 +32,34 @@ document.querySelector('.send-thought').addEventListener('click', () => {
   const body = `Visitor path: ${selectedPath}\n\nWhat they want help with:\n${thought || 'No message added.'}`;
   window.location.href = 'mailto:' + inbox + '?subject=' + encodeURIComponent(`Medhartha visitor — ${selectedPath}`) + '&body=' + encodeURIComponent(body);
 });
+
+// Content is intentionally honest about the channel's early stage.
+document.querySelector('.hero h1').innerHTML = 'Learn AI with me,<br><em>one useful step at a time.</em>';
+document.querySelector('.hero .intro').textContent = 'I’m learning AI in public and sharing what I discover, so we can explore useful tools and ideas together.';
+document.querySelector('.video-surface .play').textContent = '✦';
+document.querySelector('.video-surface p').innerHTML = 'FIRST VIDEO<br>COMING SOON';
+document.querySelectorAll('.lesson-list i').forEach(icon => icon.remove());
+document.querySelectorAll('.lesson-list article').forEach(item => item.setAttribute('aria-label', item.innerText + ' — coming soon'));
+const founder = document.createElement('section');
+founder.className = 'founder shell';
+founder.innerHTML = `<p class="eyebrow muted">A NOTE FROM THE FOUNDER</p><h2>Learning together,<br><em>with purpose.</em></h2><p>I started Medhartha because I love teaching and believe education should make new ideas feel accessible. I’m exploring AI one step at a time, sharing what I learn, and inviting you to learn alongside me. My hope is to turn this journey into practical lessons and courses as it grows.</p>`;
+document.querySelector('.journey').before(founder);
+const founderStyles = document.createElement('style'); founderStyles.textContent = `.founder{padding:100px 0}.founder h2{font:500 clamp(42px,5vw,65px)/1 "Playfair Display",serif;letter-spacing:-.05em;margin:0 0 22px}.founder h2 em{color:#71876d}.founder>p:last-child{max-width:670px;color:#53645b;font-size:17px;line-height:1.75}.stay-grid article:nth-child(3) p{max-width:230px}@media(max-width:760px){.founder{padding:72px 0}}`; document.head.appendChild(founderStyles);
+const supportCard = document.querySelector('.stay-grid article:nth-child(3)');
+supportCard.querySelector('p').textContent = 'Sponsorship opportunities are being planned for the future.';
+supportCard.querySelector('a').textContent = 'Ask about future sponsorship';
+const communityCard = document.querySelector('.stay-grid article:nth-child(4)');
+communityCard.querySelector('p').textContent = 'A space to learn together is coming soon. Get in touch to hear updates.';
+communityCard.querySelector('a').textContent = 'Ask about the community';
+document.querySelector('.join small').textContent = 'This opens your email app to send a signup request; you are not subscribed until you send it.';
+document.querySelector('.thought-copy').textContent = 'Tell us what you’re interested in. Your email app will open with a message ready for you to send.';
+
+// Direct visitors to the Google Sheets-connected AI journey form.
+document.querySelectorAll('.path-grid a').forEach(link => {
+  const replacement = link.cloneNode(true);
+  replacement.href = 'ai-journey-form.html';
+  link.replaceWith(replacement);
+});
+const signupForm = document.getElementById('interest-form');
+signupForm.outerHTML = '<div class="join-form-link"><p>Tell us where you are in your AI journey, and opt in to email updates if you wish.</p><a class="button solid" href="ai-journey-form.html">Share your AI story</a></div>';
+document.querySelectorAll('.stay-grid a[href="#join"]').forEach(link => { link.href = 'ai-journey-form.html'; });
